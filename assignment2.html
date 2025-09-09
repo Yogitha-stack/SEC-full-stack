@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f7fa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    /* Form Container */
+    .form-container {
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      width: 400px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #2d89ef;
+    }
+
+    /* Grid Layout for Form */
+    form {
+      display: grid;
+      grid-template-columns: 1fr 2fr; /* Labels | Inputs */
+      gap: 15px;
+    }
+
+    label {
+      font-weight: bold;
+      padding-top: 5px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    select {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      width: 100%;
+    }
+
+    /* Gender Options */
+    .options {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    /* Button Row */
+    .submit-btn {
+      grid-column: span 2; /* Span across both columns */
+      text-align: center;
+    }
+
+    .submit-btn button {
+      padding: 10px 20px;
+      background: #2d89ef;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s; /* Smooth hover */
+    }
+
+    .submit-btn button:hover {
+      background: #1b5fa7;
+    }
+
+    /* Responsive Layout */
+    @media (max-width: 600px) {
+      form {
+        grid-template-columns: 1fr; /* Single column */
+      }
+
+      .submit-btn {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Registration Form</h2>
+    <form>
+      <!-- Full Name -->
+      <label for="fullname">Full Name:</label>
+      <input type="text" id="fullname" name="fullname" required>
+
+      <!-- Email -->
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <!-- Course Selection -->
+      <label for="course">Course:</label>
+      <select id="course" name="course" required>
+        <option value="">-- Select a course --</option>
+        <option value="web">Web Development</option>
+        <option value="data">Data Science</option>
+        <option value="ai">Artificial Intelligence</option>
+      </select>
+
+      <!-- Gender -->
+      <label>Gender:</label>
+      <div class="options">
+        <input type="radio" id="male" name="gender" value="Male">
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="Female">
+        <label for="female">Female</label>
+      </div>
+
+      <!-- Password -->
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+
+      <!-- Confirm Password -->
+      <label for="confirm">Confirm Password:</label>
+      <input type="password" id="confirm" name="confirm" required>
+
+      <!-- Register Button -->
+      <div class="submit-btn">
+        <button type="submit">Register</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
+

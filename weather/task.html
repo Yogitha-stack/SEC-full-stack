@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editable To-Do List</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      padding: 8px;
+      border-bottom: 1px solid #ddd;
+      cursor: pointer;
+    }
+    input.edit-task {
+      width: 90%;
+      padding: 6px;
+      font-size: 1em;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>My To-Do List</h2>
+  <ul id="todo-list">
+    <li>Learn DOM Manipulation</li>
+    <li>Practice JavaScript</li>
+    <li>Build a To-Do App</li>
+  </ul>
+
+  <script>
+    $(document).ready(function () {
+      // Detect double-click on <li>
+      $("#todo-list").on("dblclick", "li", function () {
+        let currentText = $(this).text();
+        
+        // Replace text with input field
+        $(this).html(`<input type='text' class='edit-task' value='${currentText}'>`);
+        
+        // Focus input automatically
+        $(this).find("input").focus();
+      });
+
+      // Detect Enter key or blur event
+      $("#todo-list").on("keydown", ".edit-task", function (e) {
+        if (e.key === "Enter") {
+          let newText = $(this).val();
+          $(this).parent().text(newText);
+        }
+      });
+
+      $("#todo-list").on("blur", ".edit-task", function () {
+        let newText = $(this).val();
+        $(this).parent().text(newText);
+      });
+    });
+  </script>
+
+</body>
+</html>
